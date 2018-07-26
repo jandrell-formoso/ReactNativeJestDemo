@@ -12,6 +12,8 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 // import redux
 import { Provider } from 'react-redux';
 import configureStore, { initialState } from './configureStore';
+import { createStackNavigator } from 'react-navigation';
+import Navigation from './src/utils/routes';
 
 const store = configureStore(initialState);
 
@@ -23,17 +25,15 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
+  
   render() {
     return (
       <Provider store={store}>
-        <View style={styles.container}>
-          <Text style={styles.welcome}>Welcome to React Native!</Text>
-          <Text style={styles.instructions}>To get started, edit App.js</Text>
-          <Text style={styles.instructions}>{instructions}</Text>
-        </View>
+        <Navigation/>
       </Provider>
-    );
+      
+    )
   }
 }
 
@@ -55,3 +55,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default App;
