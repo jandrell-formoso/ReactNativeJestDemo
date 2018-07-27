@@ -1,6 +1,6 @@
-import { SEARCH_GITHUB_REPO, SEARCH_GITHUB_REPO_SUCCESS, searchQueryGitHub, SEARCH_GITHUB_REPO_ERROR } from "../actions";
-import mockStore from "../../../../configureMockStore";
-import mockData from '../../../../__mockData__/repo';
+import { SEARCH_GITHUB_REPO, SEARCH_GITHUB_REPO_SUCCESS, searchQueryGitHub, SEARCH_GITHUB_REPO_ERROR } from "../repoActions";
+import mockStore from "../../../../../configureMockStore";
+import mockData from '../../../../../__mockData__/repo';
 
 describe("#getRepoList() using Promises", () => {
   it("should load repo list", () => {
