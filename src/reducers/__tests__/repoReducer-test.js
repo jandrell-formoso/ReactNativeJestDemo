@@ -1,5 +1,5 @@
 import { repoReducer } from '../repoReducer';
-import { SEARCH_GITHUB_REPO_SUCCESS } from '../../components/DataList/actions';
+import actionTypes from '../../actions/actionTypes';
 import mockData from '../../../__mockData__/repo';
 
 describe('#repoReducer', () => {
@@ -10,7 +10,7 @@ describe('#repoReducer', () => {
   });
   it('should handle SEARCH_GITHUB_REPO_SUCCESS', () => {
     expect(repoReducer({}, {
-      type: SEARCH_GITHUB_REPO_SUCCESS,
+      type: actionTypes.SEARCH_GITHUB_REPO_SUCCESS,
       payload: mockData.REACT_NATIVE_JEST_DEMO,
     })).toEqual({
       repoCount: 1,

@@ -1,18 +1,14 @@
-import Url from '../../../utils/url';
+import Url from '../utils/url';
 import 'cross-fetch/polyfill'; // for jest to read fetch'
-
-// put all action constants here
-const SEARCH_GITHUB_REPO = 'SEARCH_GITHUB_REPO';
-const SEARCH_GITHUB_REPO_SUCCESS = 'SEARCH_GITHUB_REPO_SUCCESS';
-const SEARCH_GITHUB_REPO_ERROR = 'SEARCH_GITHUB_REPO_ERROR';
+import actionTypes from './actionTypes';
 
 const searchQueryGitHubSuccess = (payload) => ({
-  type: SEARCH_GITHUB_REPO_SUCCESS,
+  type: actionTypes.SEARCH_GITHUB_REPO_SUCCESS,
   payload
 });
 
 const searchQueryGitHubError = (error) => ({
-  type: SEARCH_GITHUB_REPO_ERROR,
+  type: actionTypes.SEARCH_GITHUB_REPO_ERROR,
   error
 });
 
@@ -24,4 +20,4 @@ const searchQueryGitHub = (searchQuery) => {
     .catch(err => dispatch(searchQueryGitHubError(err)));
 };
 
-export { SEARCH_GITHUB_REPO, SEARCH_GITHUB_REPO_ERROR, SEARCH_GITHUB_REPO_SUCCESS, searchQueryGitHub };
+export { searchQueryGitHub };
