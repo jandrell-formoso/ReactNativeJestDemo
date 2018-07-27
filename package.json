@@ -4,11 +4,16 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
+    "cross-fetch": "^2.2.2",
     "react": "16.4.1",
     "react-native": "0.56.0",
+    "react-native-paper": "^2.0.0-alpha.7",
+    "react-native-vector-icons": "^4.6.0",
+    "react-navigation": "^2.9.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0"
@@ -16,8 +21,10 @@
   "devDependencies": {
     "babel-jest": "23.4.0",
     "babel-preset-react-native": "^5",
+    "fetch-mock": "^6.5.2",
     "jest": "23.4.1",
-    "react-test-renderer": "16.4.1"
+    "react-test-renderer": "16.4.1",
+    "redux-mock-store": "^1.5.3"
   },
   "jest": {
     "preset": "react-native",
