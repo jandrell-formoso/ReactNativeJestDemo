@@ -1,4 +1,4 @@
-import { searchQueryGitHub } from './repoActions';
+import { getRepoList } from './repoActions';
 import actionTypes from './actionTypes';
 
-export { searchQueryGitHub };
+export { getRepoList };
