@@ -5,6 +5,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Searchbar as Search } from 'react-native-paper';
+import { searchQueryOnChange } from '../../actions';
 
 type Props = {
   onChangeText: Function,
@@ -12,7 +13,7 @@ type Props = {
 }
 
 const SearchBar = ({ query, onChangeText }: Props) => (
-  <SearchBar
+  <Search
     placeholder={"Search"}
     onChangeText={onChangeText(query)} />
 );
@@ -24,7 +25,9 @@ const mapStateToProps = (state) : Props => {
 };
 
 const mapDispatchToProps = (dispatch, state) => ({
-  onChangeText: value => dispatch(searchQueryOnChange(value))
+  onChangeText: value => {
+    dispatch(searchQueryOnChange(value))
+  },
 });
 
 export default connect(

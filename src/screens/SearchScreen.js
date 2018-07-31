@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-navigation';
 import { ListItem, Text } from 'react-native-paper';
 import { View } from 'react-native';
+import SearchBar from '../components/SearchBar';
 
 type Props = {
 
@@ -16,8 +17,7 @@ class SearchScreen extends Component<Props> {
     return (
       <SafeAreaView>
         <View>
-          <Text>Search Screen</Text>
-          <ListItem title="Hello" />
+          <SearchBar />
         </View>
       </SafeAreaView>
     )
