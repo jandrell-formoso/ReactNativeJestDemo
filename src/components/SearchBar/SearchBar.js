@@ -8,7 +8,7 @@ import { Searchbar as Search } from 'react-native-paper';
 import { searchQueryOnChange } from '../../actions';
 
 type Props = {
-  onChangeText: Function,
+  onChangeText?: (query: string) => void,
   query: string,
 }
 
