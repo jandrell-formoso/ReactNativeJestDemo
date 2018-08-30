@@ -1,9 +1,10 @@
 import actionTypes from "./actionTypes";
-import { getRepoList } from "./repoActions";
+import { getRepoList, isLoadingRepo } from "./repoActions";
 
 const searchQueryOnChange = (text: string) => {
   //
   return dispatch => {
+    dispatch(isLoadingRepo(true));
     dispatch(searchQueryOnChangeSuccess(text));
     return dispatch(getRepoList(text));
   };
@@ -20,10 +21,10 @@ const searchQueryOnChangeSuccess = text => {
   };
 };
 
-const searchQueryOnChangeError = text => {
+const searchQueryOnChangeError = error => {
   return {
     type: actionTypes.SEARCH_ONCHANGE_TEXT_ERROR,
-    text
+    error
   };
 };
 

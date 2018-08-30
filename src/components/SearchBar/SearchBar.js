@@ -12,10 +12,10 @@ type Props = {
   query: string,
 }
 
-const SearchBar = ({ query, onChangeText }: Props) => (
+const SearchBar = ({ query, onChangeText }) => (
   <Search
     placeholder={"Search"}
-    onChangeText={onChangeText(query)} />
+    onChangeText={val => onChangeText(val)} />
 );
 
 const mapStateToProps = (state) : Props => {
