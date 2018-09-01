@@ -10,7 +10,7 @@ import { Card, CardContent, Title, Paragraph } from "react-native-paper";
 type Props = {};
 type State = {};
 
-class DataList extends Component<Props, {}> {
+class RepoList extends Component<Props, {}> {
   render() {
     return (
       <SafeAreaView>
@@ -40,4 +40,4 @@ const mapDispatchToProps = (dispatch, state): Props => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DataList);
+)(RepoList);

@@ -8,7 +8,7 @@ import { SafeAreaView } from "react-navigation";
 import { ListItem, Text } from "react-native-paper";
 import { View, ActivityIndicator } from "react-native";
 import SearchBar from "../components/SearchBar";
-import RepoList from "../components/DataList";
+import RepoList from "../components/RepoList";
 
 type Props = {
   repos?: {},
