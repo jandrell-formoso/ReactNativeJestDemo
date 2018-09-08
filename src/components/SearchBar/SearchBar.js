@@ -6,6 +6,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Searchbar as Search } from 'react-native-paper';
 import { searchQueryOnChange } from '../../actions';
+import debounce from 'lodash/debounce';
 
 type Props = {
   onChangeText?: (query: string) => void,
@@ -25,9 +26,9 @@ const mapStateToProps = (state) : Props => {
 };
 
 const mapDispatchToProps = (dispatch, state) => ({
-  onChangeText: value => {
+  onChangeText: debounce(value => {
     dispatch(searchQueryOnChange(value))
-  },
+  }, 250, { leading: false, trailing: true }),
 });
 
 export default connect(
