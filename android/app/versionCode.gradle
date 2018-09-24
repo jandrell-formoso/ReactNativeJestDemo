@@ -1,5 +1,5 @@
 // increment version code by saving the current version code to gradle.properties
-task('incrementVersionCode') << {
+task('incrementVersionCode').doLast {
     def versionCode = Integer.parseInt(VERSION_CODE) + 1
     ant.propertyfile(file: "../gradle.properties") {
         entry(key: "VERSION_CODE", value: versionCode)
