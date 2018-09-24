@@ -1,0 +1,40 @@
+fastlane_version '2.105.2'
+
+before_all do
+  ensure_git_branch(
+    # TODO: change it back to master
+    branch: 'feature/setup-fastlane'
+  )
+  ensure_git_status_clean
+  git_pull
+end
+
+platform :ios do
+   # iOS Lanes
+  desc 'Build the iOS application.'
+  private_lane :build do
+    certificates
+    increment_build_number(xcodeproj: './ios/name.xcodeproj')
+    gym(scheme: 'name', project: './ios/name.xcodeproj')
+  end
+end
+
+platform :android do
+  # Android Lanes
+  desc 'Build the Android application.'
+  private_lane :build do
+    gradle(task: 'clean', project_dir: 'android/')
+    gradle(task: 'incrementVersionCode', project_dir: 'android/')
+    gradle(task: 'assemble', build_type: 'Release', project_dir: 'android/')
+  end
+  desc 'Deploy android in play store beta'
+  lane :beta do
+    build
+    git_commit(path: ['./android/gradle.properties'], message: 'Bump versionCode')
+    push_to_git_remote(
+      remote: "origin",
+      local_branch: "feature/setup-fastlane",
+      remote_branch: "feature/setup-fastlane"
+    )
+  end
+end
