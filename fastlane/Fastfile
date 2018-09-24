@@ -22,20 +22,16 @@ platform :android do
   private_lane :build do
     gradle(task: 'clean', project_dir: 'android/')
     gradle(task: 'incrementVersionCode', project_dir: 'android/')
+    bumpup_minor
     gradle(task: 'assemble', build_type: 'Release', project_dir: 'android/')
   end
   desc 'Build beta android'
   lane :beta do
     build
-    bumpup_minor
     git_commit(path: ['./android/gradle.properties'], message: 'Bump versionCode and versionName')
-    push_to_git_remote(
-      remote: "origin",
-      local_branch: "feature/setup-fastlane",
-      remote_branch: "feature/setup-fastlane"
-    )
+    push_to_git_remote
   end
-  lane :bumpup_minor do
+  private_lane :bumpup_minor do
     # need android_versioning plugin
     increment_version_name(app_project_dir: '**/app', bump_type: 'minor')
   end
