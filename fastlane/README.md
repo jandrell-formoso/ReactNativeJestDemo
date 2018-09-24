@@ -20,6 +20,11 @@ or alternatively using `brew cask install fastlane`
 ```
 fastlane android beta
 ```
+Build beta android
+### android bumpup_minor
+```
+fastlane android bumpup_minor
+```
 
 
 ----
